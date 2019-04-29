@@ -6,8 +6,24 @@
         xmlns:local="clr-namespace:EdgeWebViewSample"
         xmlns:web="clr-namespace:Microsoft.Toolkit.Wpf.UI.Controls;assembly=Microsoft.Toolkit.Wpf.UI.Controls.WebView"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="1200" Loaded="Window_Loaded">
     <Grid>
-        <web:WebView Name="Browser" Source="https://google.co.jp"></web:WebView>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Name="BtnHome" Click="BtnHome_Click" Content="Home" Grid.Row="0" Grid.Column="0" />
+        <Button Name="BtnWindowToBrowser" Click="BtnWindowToBrowser_Click" Content="WindowToBrowser" Grid.Row="1" Grid.Column="0" />
+        <Button Name="BtnBrowserToWindow" Click="BtnBrowserToWindow_Click" Content="BrowserToWindow" Grid.Row="2" Grid.Column="0" />
+        <Button Name="BtnClose" Click="BtnClose_Click" Content="Close" Grid.Row="3" Grid.Column="0" />
+        <Grid  Grid.Row="0" Grid.Column="1" Grid.RowSpan="4">
+            <web:WebView Name="Browser" NavigationStarting="Browser_NavigationStarting" NavigationCompleted="Browser_NavigationCompleted"></web:WebView>
+        </Grid>
     </Grid>
 </Window>

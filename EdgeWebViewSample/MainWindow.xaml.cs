@@ -24,5 +24,47 @@ namespace EdgeWebViewSample
         {
             InitializeComponent();
         }
+
+        private readonly Uri InitializeUrl = new Uri("https://google.co.jp");
+
+        private void BtnWindowToBrowser_Click(object sender, RoutedEventArgs e)
+        {
+            var result = Browser.InvokeScript("eval", "document.getElementsByName('q')[0].value+='abc';");
+        }
+
+        private void BtnBrowserToWindow_Click(object sender, RoutedEventArgs e)
+        {
+            string htmlText = Browser.InvokeScript("eval", "document.getElementsByName('q')[0].value;");
+        }
+
+        private void BtnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnHome_Click(object sender, RoutedEventArgs e)
+        {
+            InitializeBrowser();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            InitializeBrowser();
+        }
+
+        private void InitializeBrowser()
+        {
+            Browser.Source = InitializeUrl;
+        }
+
+        private void Browser_NavigationStarting(object sender, Microsoft.Toolkit.Win32.UI.Controls.Interop.WinRT.WebViewControlNavigationStartingEventArgs e)
+        {
+
+        }
+
+        private void Browser_NavigationCompleted(object sender, Microsoft.Toolkit.Win32.UI.Controls.Interop.WinRT.WebViewControlNavigationCompletedEventArgs e)
+        {
+
+        }
     }
 }
