@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<input type="text" id="sampleText" />
+<input type="button" onclick="buttonOnClick()" value="メッセージ表示" />
+
+
+@section Scripts{ 
+
+<script>
+    function buttonOnClick() {
+        let text = document.getElementById('sampleText').value;
+        window.external.notify(text);
+    }
+</script>
+
+}
+
+
+

@@ -6,9 +6,10 @@
         xmlns:local="clr-namespace:EdgeWebViewSample"
         xmlns:web="clr-namespace:Microsoft.Toolkit.Wpf.UI.Controls;assembly=Microsoft.Toolkit.Wpf.UI.Controls.WebView"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="1200" Loaded="Window_Loaded">
+        Title="MainWindow" Height="600" Width="1000" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -17,13 +18,16 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>
             <ColumnDefinition/>
+            <ColumnDefinition Width="50"/>
         </Grid.ColumnDefinitions>
-        <Button Name="BtnHome" Click="BtnHome_Click" Content="Home" Grid.Row="0" Grid.Column="0" />
-        <Button Name="BtnWindowToBrowser" Click="BtnWindowToBrowser_Click" Content="WindowToBrowser" Grid.Row="1" Grid.Column="0" />
-        <Button Name="BtnBrowserToWindow" Click="BtnBrowserToWindow_Click" Content="BrowserToWindow" Grid.Row="2" Grid.Column="0" />
-        <Button Name="BtnClose" Click="BtnClose_Click" Content="Close" Grid.Row="3" Grid.Column="0" />
-        <Grid  Grid.Row="0" Grid.Column="1" Grid.RowSpan="4">
-            <web:WebView Name="Browser" NavigationStarting="Browser_NavigationStarting" NavigationCompleted="Browser_NavigationCompleted"></web:WebView>
+        <TextBox Name="TxtUrl" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"></TextBox>
+        <Button Name="BtnMove" Content="移動" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2" Click="BtnMove_Click"></Button>
+        <Button Name="BtnHome" Click="BtnHome_Click" Content="Home" Grid.Row="1" Grid.Column="0" />
+        <Button Name="BtnWindowToBrowser" Click="BtnWindowToBrowser_Click" Content="WindowToBrowser" Grid.Row="2" Grid.Column="0" />
+        <Button Name="BtnBrowserToWindow" Click="BtnBrowserToWindow_Click" Content="BrowserToWindow" Grid.Row="3" Grid.Column="0" />
+        <Button Name="BtnClose" Click="BtnClose_Click" Content="Close" Grid.Row="4" Grid.Column="0" />
+        <Grid  Grid.Row="1" Grid.Column="1" Grid.RowSpan="5" Grid.ColumnSpan="2">
+            <web:WebView Name="Browser" NavigationStarting="Browser_NavigationStarting" NavigationCompleted="Browser_NavigationCompleted" ScriptNotify="Browser_ScriptNotify"></web:WebView>
         </Grid>
     </Grid>
 </Window>
